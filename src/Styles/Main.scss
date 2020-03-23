@@ -1,0 +1,16 @@
+.centralized {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgb(231, 231, 231);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: rgb(175, 175, 175);
+  border-radius: 10px;
+}

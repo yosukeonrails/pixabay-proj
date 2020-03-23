@@ -15,7 +15,7 @@ const CategoryDropdown = props => {
   }, [DropdownItems]);
 
   return (
-    <div>
+    <div className="category-dropdown centralized">
       <Dropdown
         onSelect={k => {
           if (k === "none") {

@@ -33,18 +33,20 @@ const ImageBrowser = () => {
   };
 
   useEffect(() => {
-    getImageData(`https://pixabay.com/api/?key=${config.PIXABAY_API_KEY}`);
+    getImageData(
+      `https://pixabay.com/api/?key=${config.PIXABAY_API_KEY}&per_page=30`
+    );
   }, []);
 
   const submitSearch = (searchQuery, category) => {
     let requestParamter = concatQuery(
       "https://pixabay.com/api/",
-      ["key", "q", "category", "per_page", "image_type"],
+      ["key", "q", "category", "per_page"],
       [
         config.PIXABAY_API_KEY,
         parseQueryToURLEncoded(searchQuery),
         category,
-        "15"
+        "30"
       ]
     );
     console.log("getting iamge");
@@ -52,7 +54,7 @@ const ImageBrowser = () => {
   };
 
   return (
-    <div>
+    <div className="image-browser">
       <Navigator submitSearch={submitSearch} />
       <ResultBrowser resultData={resultData} />
     </div>

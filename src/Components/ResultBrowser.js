@@ -11,8 +11,8 @@ const ResultBrowser = props => {
   }
 
   return (
-    <div>
-      <div className="result-browser">{results}</div>
+    <div className="result-browser centralized">
+      <div className="results-container centralized">{results}</div>
     </div>
   );
 };

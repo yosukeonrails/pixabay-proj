@@ -13,7 +13,7 @@ const Navigator = props => {
 
   return (
     <div>
-      <div className="navigator">
+      <div className="navigator centralized">
         <KeywordSearch setSearchQuery={setSearchQuery} />
 
         <CategoryDropdown setCategory={toggleCategory} />
