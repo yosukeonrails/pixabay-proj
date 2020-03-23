@@ -1,11 +1,11 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import Navigator from "./Components/Navigator";
+import ImageBrowser from "./Components/ImageBrowser";
 
 function App() {
   return (
     <div className="App">
-      <h1> Full Breaker Project</h1>
+      <ImageBrowser />
     </div>
   );
 }
