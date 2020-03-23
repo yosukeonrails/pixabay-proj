@@ -1,20 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import keywordArray from "./../keyword.json";
 
 const CategoryDropdown = props => {
+  const [dropValue, setDropValue] = useState("Category...");
   const DropdownItems = keywordArray.keywords.map(keyword => {
     return <Dropdown.Item eventKey={keyword}>{keyword}</Dropdown.Item>;
   });
+  useEffect(() => {
+    console.log("use effect");
+    DropdownItems.unshift(
+      <Dropdown.Item eventKey={"none"}>{"none"}</Dropdown.Item>
+    );
+  }, [DropdownItems]);
+
   return (
     <div>
       <Dropdown
         onSelect={k => {
+          if (k === "none") {
+            props.setCategory("");
+            setDropValue("Category...");
+            return;
+          }
+          setDropValue(k);
           props.setCategory(k);
         }}
       >
         <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Category...
+          {dropValue}
         </Dropdown.Toggle>
 
         <Dropdown.Menu>{DropdownItems}</Dropdown.Menu>

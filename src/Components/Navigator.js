@@ -1,33 +1,26 @@
 import React, { useState, useReducer } from "react";
 import KeywordSearch from "./KeywordSearch";
 import CategoryDropdown from "./CategoryDropdown";
-import { parseQueryToURLEncoded, concatQuery } from "../Utility";
-import config from "../config";
-const Navigator = () => {
+
+const Navigator = props => {
   const [category, setCategory] = useState("");
 
   const [searchQuery, setSearchQuery] = useState("");
 
-  const submitSearch = () => {
-    console.log("submitting search");
-    let query = concatQuery(
-      "https://pixabay.com/api/",
-      ["key", "q", "category"],
-      [config.PIXABAY_API_KEY, parseQueryToURLEncoded(searchQuery), category]
-    );
-    console.log(query);
+  const toggleCategory = category => {
+    props.submitSearch(searchQuery, category);
   };
 
   return (
     <div>
       <div className="navigator">
-        <KeywordSearch setQuery={setSearchQuery} />
+        <KeywordSearch setSearchQuery={setSearchQuery} />
 
-        <CategoryDropdown setCategory={setCategory} />
+        <CategoryDropdown setCategory={toggleCategory} />
 
         <button
           onClick={() => {
-            submitSearch();
+            props.submitSearch(searchQuery, category);
           }}
           class="btn btn-primary"
         >
