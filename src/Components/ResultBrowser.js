@@ -7,9 +7,11 @@ const ResultBrowser = props => {
   if (props.resultData) {
     results = props.resultData.hits.map(result => {
       let saved;
-      if (props.savedImages.includes(result.id)) {
+      let savedImage = props.savedImages[result.id];
+      if (savedImage) {
         saved = true;
       }
+
       return <Result saved={saved} saveImage={props.saveImage} data={result} />;
     });
   }

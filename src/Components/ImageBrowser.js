@@ -20,15 +20,13 @@ const ImageBrowser = props => {
     });
   };
 
-  const saveImage = savedImageId => {
-    let imagesIds = [...props.savedImages];
+  const saveImage = (savedImageId, imageData) => {
+    let imagesIds = { ...props.savedImages };
 
-    if (imagesIds.includes(savedImageId)) {
-      imagesIds = imagesIds.filter(id => {
-        return id !== savedImageId;
-      });
+    if (imagesIds[savedImageId]) {
+      delete imagesIds[savedImageId];
     } else {
-      imagesIds.push(savedImageId);
+      imagesIds[savedImageId] = imageData;
     }
 
     props.setSavedImages(imagesIds);

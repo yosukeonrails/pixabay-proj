@@ -3,8 +3,8 @@ import ImageBrowser from "./Components/ImageBrowser";
 import "./App.scss";
 
 function App() {
-  const [savedImages, setSavedImages] = useState([]);
-  console.log(savedImages);
+  const [savedImages, setSavedImages] = useState({});
+
   return (
     <div className="App">
       <ImageBrowser setSavedImages={setSavedImages} savedImages={savedImages} />

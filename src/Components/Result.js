@@ -17,7 +17,7 @@ const Result = props => {
     <div className="result centralized">
       <div
         onClick={() => {
-          props.saveImage(props.data.id);
+          props.saveImage(props.data.id, props.data);
         }}
         className="image-preview"
         style={style}
