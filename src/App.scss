@@ -1,8 +1,5 @@
 @import "./Styles/Navigator.scss";
 @import "./Styles/Main.scss";
 @import "./Styles/ResultsBrowser.scss";
-
-.image-browser {
-  overflow: hidden;
-  height: 100vh;
-}
+@import "./Styles/SavedLinksList.scss";
+@import "./Styles/PixabayApp.scss";

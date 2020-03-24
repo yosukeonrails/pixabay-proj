@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import ImageBrowser from "./Components/ImageBrowser";
+import React from "react";
 import "./App.scss";
+import PixabayApp from "./Components/PixabayApp";
 
 function App() {
-  const [savedImages, setSavedImages] = useState({});
-
   return (
-    <div className="App">
-      <ImageBrowser setSavedImages={setSavedImages} savedImages={savedImages} />
+    <div className="pixabay-app">
+      <PixabayApp />
     </div>
   );
 }

@@ -1,0 +1,23 @@
+.saved-links {
+  width: 20%;
+  border-left: 1px solid #e0e0e0;
+  padding: 2em;
+  h3 {
+    font-size: 20px;
+    margin-bottom: 1em;
+  }
+}
+
+.saved-link {
+  color: #2e15ff;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  p {
+    margin-bottom: 5px;
+    margin-right: 2em;
+  }
+  i {
+    margin-top: 2px;
+  }
+}
