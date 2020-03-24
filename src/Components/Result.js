@@ -15,10 +15,20 @@ const Result = props => {
 
   return (
     <div className="result centralized">
-      <div className="image-preview" style={style}>
+      <div
+        onClick={() => {
+          props.saveImage(props.data.id);
+        }}
+        className="image-preview"
+        style={style}
+      >
         <div
           className="image-saved"
-          style={{ marginTop: style.height - 25, height: 25 }}
+          style={{
+            display: props.saved ? "block" : "none",
+            marginTop: style.height - 25,
+            height: 25
+          }}
         >
           <p>saved</p>
         </div>

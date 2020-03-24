@@ -8,6 +8,7 @@ const Navigator = props => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const toggleCategory = category => {
+    setCategory(category);
     props.submitSearch(searchQuery, category);
   };
 

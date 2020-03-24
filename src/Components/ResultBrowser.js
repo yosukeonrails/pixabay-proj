@@ -3,10 +3,14 @@ import Result from "./Result";
 
 const ResultBrowser = props => {
   let results;
+
   if (props.resultData) {
-    console.log(props.resultData);
     results = props.resultData.hits.map(result => {
-      return <Result data={result} />;
+      let saved;
+      if (props.savedImages.includes(result.id)) {
+        saved = true;
+      }
+      return <Result saved={saved} saveImage={props.saveImage} data={result} />;
     });
   }
 
