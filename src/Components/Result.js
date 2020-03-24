@@ -1,13 +1,7 @@
 import React from "react";
 
 const Result = props => {
-  let {
-    previewURL,
-    previewWidth,
-    previewHeight,
-    tags,
-    webformatURL
-  } = props.data;
+  let { previewWidth, previewHeight, tags, webformatURL } = props.data;
 
   let style = {
     backgroundImage: `url(${webformatURL} )`,

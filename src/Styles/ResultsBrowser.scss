@@ -13,18 +13,18 @@
 }
 .image-preview {
   width: 15em;
-  background-size: contain;
   height: 115px;
   margin-right: 1em;
   background-position: top;
   background-repeat: no-repeat;
+  background-size: cover;
   margin-left: 1em;
   cursor: pointer;
 }
 
 .image-saved {
   color: white;
-  background-color: #5663ff;
+  background-color: #5663ffe6;
   text-align: center;
   margin-top: 92px;
 }
@@ -34,20 +34,22 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
   display: flex;
   flex-flow: row wrap;
-  -webkit-flex-flow: row wrap;
   justify-content: space-around;
-  width: 90%;
+  width: 100%;
   min-width: 20em;
-  max-width: 70em;
+  margin: 0;
   overflow: scroll;
   height: 60vh;
   overflow-x: hidden;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .tags {
-  width: 45%;
+  width: 30%;
 }
 
 .tag {
