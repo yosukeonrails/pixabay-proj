@@ -1,68 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## FullBeaker Pixabay App Project
 
-## Available Scripts
+By [Yosuke Hishinuma](mailto:yosukeonrails@gmail.com)
 
-In the project directory, you can run:
+[yosukeonrails.github.io](https://github.com/yosukeonrails)
 
-### `yarn start`
+![app image](images/app.png "App picture")
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installations and Instructions
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. Clone or download the file from:
 
-### `yarn test`
+   https://github.com/yosukeonrails/pixabay-proj
+   
+    or use the Terminal or Command Line:
+ 
+ ```
+   $ git clone https://github.com/yosukeonrails/pixabay-proj.git
+   ```
+2. Navigate to the folder with Terminal or Command Line:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   `$ cd pixabay-proj`
 
-### `yarn build`
+3. Make sure to have the latest version of Node.
+ 
+   For Macs install through terminal with:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ` $brew install node` 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+   or to upgrade node:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   `$brew upgrade node `
 
-### `yarn eject`
+   Or for Windows install through the website:
+   https://nodejs.org/en/download/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. Once in the directory, run `npm install` in order to install all the dependencies. 
+   
+5. Run the program with `npm start`. This will start a server on localhost port 3000 and the application!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   Open your browser of choice and navigate to: http://localhost:3000/ and enjoy!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+6. To run tests associated with the project just simply run:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    `npm run test` 
+   
+   ## Technologies and Dependancies 
+    
+    * React
+    * SASS/CSS
+    * ES6
+    * react-bootstrap
+    * axios
+    * jest
+    
+   ## Bonuses Features
+     Besides the implementation of the main requirements, some additional functionalities were added to the application.
 
-## Learn More
+   #### Search as type..
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    This allows users to search the image they want as they type it in the search bar. In order to keep the app from hitting the webserver for every key pressed, instead it includes a `buffer` of `200` milliseconds which is cancelled whenever the user stops typing and once that buffer threshold is exceeded then the search is executed.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   #### Looks good on mobile!
 
-### Code Splitting
+     In order to adapt the application in to smaller window sizes, besides it being responsive, the saved link list which is positioned on the right side of the UI on the big screen, is instead elegantly hidden and can be toggled with a small tab on the right hand corner!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+    ![tab](images/tab.png "App picture")
 
-### Analyzing the Bundle Size
+   #### Pagination!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+     As another cherry on top, pagination was added so users can see all of the search hits returned. 
 
-### Making a Progressive Web App
+    ![pagination](images/pagination.png "App picture")
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
