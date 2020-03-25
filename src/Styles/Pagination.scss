@@ -2,8 +2,11 @@
   width: 100%;
   height: 3em;
   display: flex;
+  background-color: #292929;
   padding: 10px;
-  justify-content: space-around;
+  justify-content: center;
+  color: white;
+  box-shadow: 1px 18px 13px 0px #bdbdbd9e;
   i {
     font-size: 25px;
     cursor: pointer;
@@ -12,13 +15,22 @@
 .pagination-numbers {
   display: flex;
   justify-content: space-around;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .pagination-number {
-  text-align: center;
-  width: 1.5em;
-  margin-left: 2px;
-  margin-right: 2px;
+  cursor: pointer;
+  color: white;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
   h3 {
     font-size: 20px;
+    margin: 0;
   }
 }

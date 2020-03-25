@@ -1,7 +1,9 @@
 import React from "react";
 import { result_per_page } from "./../contants";
+
 const PaginationController = props => {
   let { currentPage, changePage, totalHits } = props;
+
   let howManyPages = Math.ceil(totalHits / result_per_page);
 
   let paginationNumbers = () => {
@@ -15,10 +17,21 @@ const PaginationController = props => {
 
     for (let i = startingNumber; i <= lastNumber; i++) {
       let selectedStyle =
-        i === currentPage ? { backgroundColor: "#171212", color: "white" } : {};
-
+        i === currentPage
+          ? {
+              backgroundColor: "#171212",
+              color: "white",
+              border: "2px solid white"
+            }
+          : {};
       numbers.push(
-        <div style={selectedStyle} className="pagination-number">
+        <div
+          onClick={() => {
+            changePage(i);
+          }}
+          style={selectedStyle}
+          className="pagination-number"
+        >
           <h3>{i}</h3>
         </div>
       );
@@ -27,16 +40,19 @@ const PaginationController = props => {
     return numbers;
   };
 
-  let paginate = page => {
-    changePage(page);
-  };
-
   return (
-    <div className="pagination-controller">
+    <div
+      className="pagination-controller"
+      style={{
+        display:
+          props.scrollTop > 8 && props.position === "top" ? "none" : "flex",
+        marginTop: props.position === "bottom" ? "2em" : "0"
+      }}
+    >
       <i
         style={{ visibility: currentPage !== 1 ? "visible" : "hidden" }}
         onClick={() => {
-          paginate(currentPage - 1);
+          changePage(currentPage - 1);
         }}
         class="fas fa-arrow-circle-left"
       ></i>
@@ -47,7 +63,7 @@ const PaginationController = props => {
           visibility: totalHits > 30 * currentPage ? "visible" : "hidden"
         }}
         onClick={() => {
-          paginate(currentPage + 1);
+          changePage(currentPage + 1);
         }}
         class="fas fa-arrow-circle-right"
       ></i>
