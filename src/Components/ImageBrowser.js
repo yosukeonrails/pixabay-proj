@@ -4,6 +4,7 @@ import Navigator from "./Navigator";
 import { parseQueryToURLEncoded, concatQuery } from "../Utility";
 import config from "../config";
 import axios from "axios";
+import { result_per_page } from "../contants";
 
 const initialcurrentSeachParameters = {
   query: "",
@@ -16,12 +17,16 @@ const currentSearchParametersReducer = (state, action) => {
     case "QUERY":
       return {
         ...state,
+        // here we reset page to 1 when a new search happens
+        page: 1,
         query: action.query
       };
 
     case "CATEGORY":
       return {
         ...state,
+        // here we reset page to 1 when a new search happens
+        page: 1,
         category: action.category
       };
     case "PAGE":
@@ -88,14 +93,14 @@ const ImageBrowser = props => {
         config.PIXABAY_API_KEY,
         parseQueryToURLEncoded(data.query),
         data.category,
-        "30",
+        result_per_page,
         data.page
       ]
     );
 
     getImageData(requestParamter);
   };
-
+  console.log(currentSeachParams);
   return (
     <div className="image-browser">
       <Navigator

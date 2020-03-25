@@ -9,3 +9,16 @@
     cursor: pointer;
   }
 }
+.pagination-numbers {
+  display: flex;
+  justify-content: space-around;
+}
+.pagination-number {
+  text-align: center;
+  width: 1.5em;
+  margin-left: 2px;
+  margin-right: 2px;
+  h3 {
+    font-size: 20px;
+  }
+}

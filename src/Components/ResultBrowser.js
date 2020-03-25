@@ -4,8 +4,11 @@ import PaginationController from "./PaginationController";
 
 const ResultBrowser = props => {
   let results;
+  let totalHits = 0;
 
   if (props.resultData) {
+    totalHits = props.resultData.totalHits;
+
     results = props.resultData.hits.map(result => {
       let saved;
       let savedImage = props.savedImages[result.id];
@@ -22,6 +25,7 @@ const ResultBrowser = props => {
       changePage={props.changePage}
       currentPage={props.currentPage}
       data={props.resultData}
+      totalHits={totalHits}
     />
   );
   return (
