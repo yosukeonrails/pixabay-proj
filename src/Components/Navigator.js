@@ -1,21 +1,15 @@
-import React, { useState, useReducer } from "react";
+import React from "react";
 import KeywordSearch from "./KeywordSearch";
 import CategoryDropdown from "./CategoryDropdown";
 
 const Navigator = props => {
-  const [category, setCategory] = useState("");
-
-  const [searchQuery, setSearchQuery] = useState("");
-
   const toggleSearch = query => {
-    //TODO: add dispatcher to change current searchquery
-    setSearchQuery(query);
+    props.dispatchCurrentSearchParams({ type: "QUERY", query: query });
+    props.submitSearch({ ...props.currentSeachParams, query: query });
   };
-
   const toggleCategory = category => {
-    //TODO: add dispatcher to change current category
-    setCategory(category);
-    props.submitSearch(searchQuery, category);
+    props.dispatchCurrentSearchParams({ type: "CATEGORY", category: category });
+    props.submitSearch({ ...props.currentSeachParams, category: category });
   };
 
   return (
@@ -27,7 +21,7 @@ const Navigator = props => {
 
         <button
           onClick={() => {
-            props.submitSearch(searchQuery, category);
+            props.submitSearch({ ...props.currentSeachParams });
           }}
           class="btn btn-primary"
         >

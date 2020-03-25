@@ -5,12 +5,48 @@ import { parseQueryToURLEncoded, concatQuery } from "../Utility";
 import config from "../config";
 import axios from "axios";
 
+const initialcurrentSeachParameters = {
+  query: "",
+  category: "",
+  page: 1
+};
+
+const currentSearchParametersReducer = (state, action) => {
+  switch (action.type) {
+    case "QUERY":
+      return {
+        ...state,
+        query: action.query
+      };
+
+    case "CATEGORY":
+      return {
+        ...state,
+        category: action.category
+      };
+    case "PAGE":
+      return {
+        ...state,
+        page: action.page
+      };
+
+    default:
+      return state;
+  }
+};
+
 const ImageBrowser = props => {
   const [resultData, setResultData] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
+
+  const [currentSeachParams, dispatchCurrentSearchParams] = React.useReducer(
+    currentSearchParametersReducer,
+    initialcurrentSeachParameters
+  );
 
   const changePage = page => {
-    submitSearch("currentSearchQuery", "currentCategory", page);
+    console.log("changing page to" + page);
+    dispatchCurrentSearchParams({ type: "PAGE", page: page });
+    submitSearch({ ...currentSeachParams, page: page });
   };
 
   const getImageData = query => {
@@ -43,16 +79,17 @@ const ImageBrowser = props => {
     );
   }, []);
 
-  const submitSearch = (searchQuery, category, page = currentPage) => {
+  const submitSearch = data => {
+    console.log(data);
     let requestParamter = concatQuery(
       "https://pixabay.com/api/",
       ["key", "q", "category", "per_page", "page"],
       [
         config.PIXABAY_API_KEY,
-        parseQueryToURLEncoded(searchQuery),
-        category,
+        parseQueryToURLEncoded(data.query),
+        data.category,
         "30",
-        page
+        data.page
       ]
     );
 
@@ -61,13 +98,17 @@ const ImageBrowser = props => {
 
   return (
     <div className="image-browser">
-      <Navigator submitSearch={submitSearch} />
+      <Navigator
+        dispatchCurrentSearchParams={dispatchCurrentSearchParams}
+        currentSeachParams={currentSeachParams}
+        submitSearch={submitSearch}
+      />
       <ResultBrowser
         savedImages={props.savedImages}
         saveImage={saveImage}
         resultData={resultData}
         changePage={changePage}
-        currentPage={currentPage}
+        currentPage={currentSeachParams.page}
       />
     </div>
   );
