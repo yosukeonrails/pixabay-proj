@@ -8,7 +8,6 @@ const CategoryDropdown = props => {
     return <Dropdown.Item eventKey={keyword}>{keyword}</Dropdown.Item>;
   });
   useEffect(() => {
-    console.log("use effect");
     DropdownItems.unshift(
       <Dropdown.Item eventKey={"none"}>{"none"}</Dropdown.Item>
     );

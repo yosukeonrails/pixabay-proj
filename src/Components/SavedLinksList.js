@@ -4,8 +4,6 @@ const SavedLinksList = props => {
   let links = [];
 
   for (let link in props.savedImages) {
-    console.log(props.savedImages[link]);
-
     links.push(
       <div className="saved-link">
         <p>{`#${link}`}</p>

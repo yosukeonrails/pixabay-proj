@@ -49,7 +49,6 @@ const ImageBrowser = props => {
   );
 
   const changePage = page => {
-    console.log("changing page to" + page);
     dispatchCurrentSearchParams({ type: "PAGE", page: page });
     submitSearch({ ...currentSeachParams, page: page });
   };
@@ -85,7 +84,6 @@ const ImageBrowser = props => {
   }, []);
 
   const submitSearch = data => {
-    console.log(data);
     let requestParamter = concatQuery(
       "https://pixabay.com/api/",
       ["key", "q", "category", "per_page", "page"],
@@ -100,7 +98,7 @@ const ImageBrowser = props => {
 
     getImageData(requestParamter);
   };
-  console.log(currentSeachParams);
+
   return (
     <div className="image-browser">
       <Navigator

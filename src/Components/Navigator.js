@@ -3,10 +3,25 @@ import KeywordSearch from "./KeywordSearch";
 import CategoryDropdown from "./CategoryDropdown";
 
 const Navigator = props => {
-  const toggleSearch = query => {
+  const buffer = 2000;
+
+  const sendSearch = query => {
+    console.log("SENT REQUEST FOR :" + query);
     props.dispatchCurrentSearchParams({ type: "QUERY", query: query });
     props.submitSearch({ ...props.currentSeachParams, query: query });
   };
+
+  const querySearchBufferTimer = query => {
+    setTimeout(() => {
+      sendSearch(query);
+    }, buffer);
+  };
+
+  const toggleSearch = query => {
+    clearTimeout(querySearchBufferTimer);
+    querySearchBufferTimer(query);
+  };
+
   const toggleCategory = category => {
     props.dispatchCurrentSearchParams({ type: "CATEGORY", category: category });
     props.submitSearch({

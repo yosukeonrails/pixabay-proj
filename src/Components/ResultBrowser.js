@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Result from "./Result";
 import PaginationController from "./PaginationController";
 
 const ResultBrowser = props => {
   let results;
-  let totalHits = 0;
+  let totalHits = null;
   const [scrollTop, setScrollTop] = useState(0);
   const myRef = useRef(0);
 
