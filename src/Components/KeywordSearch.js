@@ -8,7 +8,7 @@ const KeywordSearch = props => {
           <input
             onChange={e => {
               const { value } = e.target;
-              props.setSearchQuery(value);
+              props.toggleSearch(value);
             }}
             type="search"
             class="form-control"

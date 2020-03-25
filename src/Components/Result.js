@@ -1,10 +1,17 @@
 import React from "react";
 
 const Result = props => {
-  let { previewWidth, previewHeight, tags, webformatURL } = props.data;
+  let {
+    previewWidth,
+    previewHeight,
+    tags,
+    previewURL,
+    likes,
+    favorites
+  } = props.data;
 
   let style = {
-    backgroundImage: `url(${webformatURL} )`,
+    backgroundImage: `url(${previewURL} )`,
     width: previewWidth * 1.5,
     height: previewHeight * 1.5
   };
@@ -34,7 +41,14 @@ const Result = props => {
         </div>
       </div>
 
-      <div className="tags">{tagArray}</div>
+      <div className="image-info">
+        <div className="tags">{tagArray}</div>
+        <div className="likes">
+          <p>{likes}</p>
+          <i class="fas fa-thumbs-up"></i>
+          <p>{favorites}</p> <i class="fas fa-star"></i>
+        </div>
+      </div>
     </div>
   );
 };

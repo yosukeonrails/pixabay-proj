@@ -7,6 +7,11 @@ import axios from "axios";
 
 const ImageBrowser = props => {
   const [resultData, setResultData] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const changePage = page => {
+    submitSearch("currentSearchQuery", "currentCategory", page);
+  };
 
   const getImageData = query => {
     axios.get(query).then(res => {
@@ -38,15 +43,16 @@ const ImageBrowser = props => {
     );
   }, []);
 
-  const submitSearch = (searchQuery, category) => {
+  const submitSearch = (searchQuery, category, page = currentPage) => {
     let requestParamter = concatQuery(
       "https://pixabay.com/api/",
-      ["key", "q", "category", "per_page"],
+      ["key", "q", "category", "per_page", "page"],
       [
         config.PIXABAY_API_KEY,
         parseQueryToURLEncoded(searchQuery),
         category,
-        "30"
+        "30",
+        page
       ]
     );
 
@@ -60,6 +66,8 @@ const ImageBrowser = props => {
         savedImages={props.savedImages}
         saveImage={saveImage}
         resultData={resultData}
+        changePage={changePage}
+        currentPage={currentPage}
       />
     </div>
   );

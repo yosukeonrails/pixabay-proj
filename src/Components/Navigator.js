@@ -7,15 +7,21 @@ const Navigator = props => {
 
   const [searchQuery, setSearchQuery] = useState("");
 
+  const toggleSearch = query => {
+    //TODO: add dispatcher to change current searchquery
+    setSearchQuery(query);
+  };
+
   const toggleCategory = category => {
+    //TODO: add dispatcher to change current category
     setCategory(category);
     props.submitSearch(searchQuery, category);
   };
 
   return (
-    <div>
+    <div className="navigator-container">
       <div className="navigator centralized">
-        <KeywordSearch setSearchQuery={setSearchQuery} />
+        <KeywordSearch toggleSearch={toggleSearch} />
 
         <CategoryDropdown setCategory={toggleCategory} />
 

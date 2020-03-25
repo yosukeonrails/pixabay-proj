@@ -1,0 +1,11 @@
+.pagination-controller {
+  width: 100%;
+  height: 3em;
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  i {
+    font-size: 25px;
+    cursor: pointer;
+  }
+}

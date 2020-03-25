@@ -1,5 +1,6 @@
 import React from "react";
 import Result from "./Result";
+import PaginationController from "./PaginationController";
 
 const ResultBrowser = props => {
   let results;
@@ -16,9 +17,21 @@ const ResultBrowser = props => {
     });
   }
 
+  let paginator = (
+    <PaginationController
+      changePage={props.changePage}
+      currentPage={props.currentPage}
+      data={props.resultData}
+    />
+  );
   return (
     <div className="result-browser centralized">
-      <div className="results-container centralized">{results}</div>
+      {paginator}
+      <div className="results-container centralized">
+        {results}
+
+        {paginator}
+      </div>
     </div>
   );
 };
