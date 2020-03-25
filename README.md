@@ -68,7 +68,7 @@ By [Yosuke Hishinuma](mailto:yosukeonrails@gmail.com)
 
    #### Pagination!
 
-     As another cherry on top, pagination was added so users can see all of the search hits returned. 
+     As another cherry on top, pagination was added so users can see all of the search hits returned. The one on top hides when you scroll down, and there is another one on the bottom as well.
 
     ![pagination](images/pagination.png "App picture")
 
