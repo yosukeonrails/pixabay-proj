@@ -3,16 +3,20 @@ import { result_per_page } from "./../contants";
 const PaginationController = props => {
   let { currentPage, changePage, totalHits } = props;
   let howManyPages = Math.ceil(totalHits / result_per_page);
-  console.log(howManyPages);
-  let paginationNumbers = pages => {
+
+  let paginationNumbers = () => {
     let numbers = [];
-
     let lastNumber = Math.ceil(currentPage / 5) * 5;
+    let startingNumber = lastNumber - 4;
 
-    for (let i = 1; i <= pages; i++) {
+    if (lastNumber > howManyPages) {
+      lastNumber = howManyPages;
+    }
+
+    for (let i = startingNumber; i <= lastNumber; i++) {
       let selectedStyle =
         i === currentPage ? { backgroundColor: "#171212", color: "white" } : {};
-      console.log(i);
+
       numbers.push(
         <div style={selectedStyle} className="pagination-number">
           <h3>{i}</h3>
@@ -36,9 +40,7 @@ const PaginationController = props => {
         }}
         class="fas fa-arrow-circle-left"
       ></i>
-      <div className="pagination-numbers">
-        {paginationNumbers(howManyPages < 5 ? howManyPages : 5)}
-      </div>
+      <div className="pagination-numbers">{paginationNumbers()}</div>
 
       <i
         style={{
