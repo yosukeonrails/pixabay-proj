@@ -1,8 +1,16 @@
 .saved-links {
   width: 20%;
-  min-width: 13em;
-  border-left: 1px solid #e0e0e0;
   padding: 2em;
+  border-left: 1px solid #e0e0e0;
+  min-width: 11em;
+
+  i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em;
+    cursor: pointer;
+  }
   h3 {
     font-size: 20px;
     margin-bottom: 1em;
@@ -19,6 +27,8 @@
     margin-right: 2em;
   }
   i {
+    position: relative;
+    padding: 0;
     margin-top: 2px;
   }
 }

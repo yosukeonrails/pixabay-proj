@@ -53,7 +53,6 @@
   flex-flow: row wrap;
   justify-content: space-around;
   width: 100%;
-  min-width: 20em;
   margin: 0;
   overflow: scroll;
   height: 60vh;
@@ -68,6 +67,7 @@
 
 .likes {
   display: flex;
+  font-size: 15px;
   justify-content: space-around;
 }
 

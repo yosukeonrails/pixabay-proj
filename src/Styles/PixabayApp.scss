@@ -3,7 +3,22 @@
   height: 100vh;
   width: 80%;
 }
-
+.saved-side-tag {
+  p {
+    margin: 0;
+  }
+  cursor: pointer;
+  background-color: black;
+  position: absolute;
+  width: 30px;
+  height: 100px;
+  color: white;
+  text-align: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  right: 0;
+  border-radius: 4px 0px 0px 4px;
+}
 .pixabay-app {
   display: flex;
   width: 100%;

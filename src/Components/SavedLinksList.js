@@ -4,17 +4,31 @@ const SavedLinksList = props => {
   let links = [];
 
   for (let link in props.savedImages) {
-    console.log(link);
+    console.log(props.savedImages[link]);
+
     links.push(
       <div className="saved-link">
         <p>{`#${link}`}</p>
-        <i class="fas fa-external-link-alt"></i>
+        <a href={props.savedImages[link].pageURL}>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     );
   }
 
   return (
-    <div className="saved-links">
+    <div
+      className="saved-links"
+      style={{ display: props.showSaveLinkWindow ? "block" : "none" }}
+    >
+      <i
+        onClick={() => {
+          props.setSavedLinkToggeled(false);
+        }}
+        style={{ display: props.windowSize > 600 ? "none" : "block" }}
+        class="fas fa-minus-circle"
+      ></i>
+      <div></div>
       <h3> Saved</h3>
       {links}
     </div>
