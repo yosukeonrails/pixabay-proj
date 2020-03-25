@@ -45,6 +45,16 @@ const ResultBrowser = props => {
           setScrollTop(scrollTop);
         }}
       >
+        <div
+          className="no-result"
+          style={{
+            display: totalHits === 0 ? "block" : "none"
+          }}
+        >
+          <h2> Sorry, we could not find what were are looking for..</h2>
+          <i class="far fa-sad-tear"></i>
+        </div>
+
         {results}
 
         {renderPaginator("bottom")}

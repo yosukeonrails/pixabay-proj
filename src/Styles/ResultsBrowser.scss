@@ -23,6 +23,19 @@
   cursor: pointer;
 }
 
+.no-result {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2em;
+
+  i {
+    margin-top: 40px;
+    font-size: 10em;
+  }
+}
+
 .image-saved {
   color: white;
   background-color: #5663ffe6;

@@ -45,7 +45,10 @@ const PaginationController = props => {
       className="pagination-controller"
       style={{
         display:
-          props.scrollTop > 8 && props.position === "top" ? "none" : "flex",
+          (props.scrollTop > 8 && props.position === "top") ||
+          howManyPages === 0
+            ? "none"
+            : "flex",
         marginTop: props.position === "bottom" ? "2em" : "0"
       }}
     >
