@@ -5,7 +5,7 @@ import CategoryDropdown from "./CategoryDropdown";
 const Navigator = props => {
   const toggleSearch = query => {
     props.dispatchCurrentSearchParams({ type: "QUERY", query: query });
-    //  props.submitSearch({ ...props.currentSeachParams, query: query });
+    props.submitSearch({ ...props.currentSeachParams, query: query });
   };
   const toggleCategory = category => {
     props.dispatchCurrentSearchParams({ type: "CATEGORY", category: category });

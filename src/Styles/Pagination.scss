@@ -16,6 +16,8 @@
   display: flex;
   justify-content: space-around;
   margin-left: 10px;
+  width: 65%;
+  max-width: 14em;
   margin-right: 10px;
 }
 .pagination-number {
@@ -24,11 +26,9 @@
   border-radius: 50%;
   height: 30px;
   width: 30px;
-  margin-right: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 5px;
   h3 {
     font-size: 20px;
     margin: 0;
