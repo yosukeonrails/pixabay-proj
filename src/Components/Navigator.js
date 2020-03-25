@@ -15,7 +15,6 @@ const Navigator = props => {
         clearBuffer();
         querySearchBufferTimer =
             setTimeout((query) => {
-                console.log(query);
                 sendSearch(query);
             }, buffer, query);
     };
@@ -46,7 +45,7 @@ const Navigator = props => {
                         props.dispatchCurrentSearchParams({ type: "PAGE", page: 1 });
                         props.submitSearch({ ...props.currentSeachParams, page: 1 });
                     }}
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                 >
                     Search
         </button>

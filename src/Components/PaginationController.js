@@ -22,6 +22,7 @@ const PaginationController = props => {
                     : {};
             numbers.push(
                 <div
+                    key={i}
                     onClick={() => {
                         changePage(i);
                     }}
@@ -53,7 +54,7 @@ const PaginationController = props => {
                 onClick={() => {
                     changePage(currentPage - 1);
                 }}
-                class="fas fa-arrow-circle-left"
+                className="fas fa-arrow-circle-left"
             ></i>
             <div className="pagination-numbers">{paginationNumbers()}</div>
 
@@ -64,7 +65,7 @@ const PaginationController = props => {
                 onClick={() => {
                     changePage(currentPage + 1);
                 }}
-                class="fas fa-arrow-circle-right"
+                className="fas fa-arrow-circle-right"
             ></i>
         </div>
     );

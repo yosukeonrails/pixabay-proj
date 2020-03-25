@@ -12,8 +12,7 @@ export const concatQuery = (siteAddress, keyArray, valueArray) => {
         let start = "";
 
         let value = valueArray[index];
-        console.log(key);
-        console.log(value);
+
         if (!value) {
             continue;
         }
